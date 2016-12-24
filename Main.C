@@ -49,9 +49,10 @@ void menu0(){
     printf("5. Total e media de deputados do sexo feminino\n");
     printf("6. Percentagem de deputados de um partido\n");
     printf("7. Partido mais e menos votado\n");
+    printf("8. Informacoes do programa\n");
     printf("0. Sair do programa\n");
     scanf("%d",&n);
-    while(n!=0&&n!=1&&n!=2&&n!=3&&n!=4&&n!=5&&n!=6&&n!=7){
+    while(n!=0&&n!=1&&n!=2&&n!=3&&n!=4&&n!=5&&n!=6&&n!=7&&n!=8){
         system("cls");
         printf("Invalido. Selecione novamente a opcao:\n\n");
         printf("1. Inserir, mostrar ou eliminar informacao do parlamento\n");
@@ -61,6 +62,7 @@ void menu0(){
         printf("5. Total e media de deputados do sexo feminino\n");
         printf("6. Percentagem de deputados de um partido\n");
         printf("7. Partido mais e menos votado\n");
+        printf("8. Informacoes do programa\n");
         printf("0. Sair do programa\n");
         scanf("%d",&n);
     }
@@ -84,6 +86,9 @@ void menu0(){
                                             else
                                                 if(n==7)
                                                     menu7();
+                                                    else
+                                                        if(n==8)
+                                                            menu8();
 }
 
 void menu1(){
@@ -370,6 +375,29 @@ void menu7(){
         system("cls");
         printf("Partido mais votado:\n");
         printf("Partido menos votado:\n\n");
+        printf("Invalido. Pressione 0 para voltar\n");
+        scanf("%d",&n);
+    }
+    menu0();
+}
+
+void menu8(){
+    system("cls");
+    int n;
+    printf("Trabalho pratico de APROG\n");
+    printf("Autores:\n");
+    printf("- Andre Moura\n");
+    printf("- Alberto Santos\n");
+    printf("- Miguel Mestre\n\n");
+    printf("Pressione 0 para voltar\n");
+    scanf("%d",&n);
+    while(n!=0){
+        system("cls");
+        printf("Trabalho pratico de APROG\n");
+        printf("Autores:\n");
+        printf("- Andre Moura\n");
+        printf("- Alberto Santos\n");
+        printf("- Miguel Mestre\n\n");
         printf("Invalido. Pressione 0 para voltar\n");
         scanf("%d",&n);
     }
