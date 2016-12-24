@@ -45,10 +45,23 @@ void menu0(){
     printf("1. Inserir, mostrar ou eliminar informacao do parlamento\n");
     printf("2. Inserir, mostrar ou eliminar informacao dos partidos\n");
     printf("3. Inserir, mostrar ou eliminar informacao dos deputados\n");
+    printf("4. Total de partidos do parlamento\n");
+    printf("5. Total e media de deputados do sexo feminino\n");
+    printf("6. Percentagem de deputados de um partido\n");
+    printf("7. Partido mais e menos votado\n");
     printf("0. Sair do programa\n");
     scanf("%d",&n);
-    while(n!=0&&n!=1&&n!=2&&n!=3){
-        printf("Invalido. Introduza novamente:\n");
+    while(n!=0&&n!=1&&n!=2&&n!=3&&n!=4&&n!=5&&n!=6&&n!=7){
+        system("cls");
+        printf("Invalido. Selecione novamente a opcao:\n\n");
+        printf("1. Inserir, mostrar ou eliminar informacao do parlamento\n");
+        printf("2. Inserir, mostrar ou eliminar informacao dos partidos\n");
+        printf("3. Inserir, mostrar ou eliminar informacao dos deputados\n");
+        printf("4. Total de partidos do parlamento\n");
+        printf("5. Total e media de deputados do sexo feminino\n");
+        printf("6. Percentagem de deputados de um partido\n");
+        printf("7. Partido mais e menos votado\n");
+        printf("0. Sair do programa\n");
         scanf("%d",&n);
     }
     if(n==1)
@@ -59,6 +72,18 @@ void menu0(){
             else
                 if(n==3)
                     menu3();
+                    else
+                        if(n==4)
+                            menu4();
+                            else
+                                if(n==5)
+                                    menu5();
+                                    else
+                                        if(n==6)
+                                            menu6();
+                                            else
+                                                if(n==7)
+                                                    menu7();
 }
 
 void menu1(){
@@ -161,4 +186,66 @@ void menu3(){
                         if(n==0){
                             menu0();
                         }
+}
+
+void menu4(){
+    int n;
+    system("cls");
+    printf("Total de partidos:\n\n");
+    printf("Pressione 0 para voltar\n");
+    scanf("%d",&n);
+    while(n!=0){
+        system("cls");
+        printf("Total de partidos:\n\n");
+        printf("Invalido. Pressione 0 para voltar\n");
+        scanf("%d",&n);
+    }
+    menu0();
+}
+
+void menu5(){
+    int n;
+    system("cls");
+    printf("Total e media de deputados do sexo feminino:\n\n");
+    printf("Pressione 0 para voltar\n");
+    scanf("%d",&n);
+    while(n!=0){
+        system("cls");
+        printf("Total e media de deputados do sexo feminino:\n\n");
+        printf("Invalido. Pressione 0 para voltar\n");
+        scanf("%d",&n);
+    }
+    menu0();
+}
+
+void menu6(){
+    int n;
+    system("cls");
+    printf("Percentagem de deputados do partido:\n\n");
+    printf("Pressione 0 para voltar\n");
+    scanf("%d",&n);
+    while(n!=0){
+        system("cls");
+        printf("Percentagem de deputados do partido:\n\n");
+        printf("Invalido. Pressione 0 para voltar\n");
+        scanf("%d",&n);
+    }
+    menu0();
+}
+
+void menu7(){
+    int n;
+    system("cls");
+    printf("Partido mais votado:\n");
+    printf("Partido menos votado:\n\n");
+    printf("Pressione 0 para voltar\n");
+    scanf("%d",&n);
+    while(n!=0){
+        system("cls");
+        printf("Partido mais votado:\n");
+        printf("Partido menos votado:\n\n");
+        printf("Invalido. Pressione 0 para voltar\n");
+        scanf("%d",&n);
+    }
+    menu0();
 }
