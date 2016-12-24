@@ -102,22 +102,64 @@ void menu1(){
     }
     if(n==1){
         system("cls");
-        printf("Insere");
+        menu11();
     }
     else
         if(n==2){
             system("cls");
-            printf("Mostra");
+            menu12();
         }
             else
                 if(n==3){
                     system("cls");
-                    printf("Elimina");
+                    menu13();
                 }
                     else
                         if(n==0){
                             menu0();
                         }
+}
+
+void menu11(){
+    int n;
+    printf("Inserir\n\n");
+    printf("Pressione 0 para voltar\n");
+    scanf("%d",&n);
+    while(n!=0){
+        system("cls");
+        printf("Inserir\n\n");
+        printf("Invalido. Pressione 0 para voltar\n");
+        scanf("%d",&n);
+    }
+    menu1();
+}
+
+void menu12(){
+    int n;
+    printf("Mostrar\n\n");
+    printf("Pressione 0 para voltar\n");
+    scanf("%d",&n);
+    while(n!=0){
+        system("cls");
+        printf("Mostrar\n\n");
+        printf("Invalido. Pressione 0 para voltar\n");
+        scanf("%d",&n);
+    }
+    menu1();
+}
+
+void menu13(){
+    int n;
+    printf("Eliminar\n\n");
+    printf("Pressione 0 para voltar\n");
+    scanf("%d",&n);
+    while(n!=0){
+        system("cls");
+        printf("Eliminar\n\n");
+        printf("Invalido. Pressione 0 para voltar\n");
+        scanf("%d",&n);
+    }
+    menu1();
 }
 
 void menu2(){
@@ -136,22 +178,64 @@ void menu2(){
     }
     if(n==1){
         system("cls");
-        printf("Insere");
+        menu21();
     }
     else
         if(n==2){
             system("cls");
-            printf("Mostra");
+            menu22();
         }
             else
                 if(n==3){
                     system("cls");
-                    printf("Elimina");
+                    menu23();
                 }
                     else
                         if(n==0){
                             menu0();
                         }
+}
+
+void menu21(){
+    int n;
+    printf("Inserir\n\n");
+    printf("Pressione 0 para voltar\n");
+    scanf("%d",&n);
+    while(n!=0){
+        system("cls");
+        printf("Inserir\n\n");
+        printf("Invalido. Pressione 0 para voltar\n");
+        scanf("%d",&n);
+    }
+    menu2();
+}
+
+void menu22(){
+    int n;
+    printf("Mostrar\n\n");
+    printf("Pressione 0 para voltar\n");
+    scanf("%d",&n);
+    while(n!=0){
+        system("cls");
+        printf("Mostrar\n\n");
+        printf("Invalido. Pressione 0 para voltar\n");
+        scanf("%d",&n);
+    }
+    menu2();
+}
+
+void menu23(){
+    int n;
+    printf("Eliminar\n\n");
+    printf("Pressione 0 para voltar\n");
+    scanf("%d",&n);
+    while(n!=0){
+        system("cls");
+        printf("Eliminar\n\n");
+        printf("Invalido. Pressione 0 para voltar\n");
+        scanf("%d",&n);
+    }
+    menu2();
 }
 
 void menu3(){
@@ -170,22 +254,64 @@ void menu3(){
     }
     if(n==1){
         system("cls");
-        printf("Insere");
+        menu31();
     }
     else
         if(n==2){
             system("cls");
-            printf("Mostra");
+            menu32();
         }
             else
                 if(n==3){
                     system("cls");
-                    printf("Elimina");
+                    menu33();
                 }
                     else
                         if(n==0){
                             menu0();
                         }
+}
+
+void menu31(){
+    int n;
+    printf("Inserir\n\n");
+    printf("Pressione 0 para voltar\n");
+    scanf("%d",&n);
+    while(n!=0){
+        system("cls");
+        printf("Inserir\n\n");
+        printf("Invalido. Pressione 0 para voltar\n");
+        scanf("%d",&n);
+    }
+    menu3();
+}
+
+void menu32(){
+    int n;
+    printf("Mostrar\n\n");
+    printf("Pressione 0 para voltar\n");
+    scanf("%d",&n);
+    while(n!=0){
+        system("cls");
+        printf("Mostrar\n\n");
+        printf("Invalido. Pressione 0 para voltar\n");
+        scanf("%d",&n);
+    }
+    menu3();
+}
+
+void menu33(){
+    int n;
+    printf("Eliminar\n\n");
+    printf("Pressione 0 para voltar\n");
+    scanf("%d",&n);
+    while(n!=0){
+        system("cls");
+        printf("Eliminar\n\n");
+        printf("Invalido. Pressione 0 para voltar\n");
+        scanf("%d",&n);
+    }
+    menu3();
 }
 
 void menu4(){
