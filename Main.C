@@ -34,7 +34,7 @@ int main()
 {
     tParlamento pt;
     /* Vetor inicial: Registo do País, os partidos do seu parlamento assim como os deputados que o compõem */
-    pt={"Portugal",{{"PS","Partido Socialista",86,{{1321,"Alexandre Tiedtke Quintanilha","M","Porto"},{1456,"Antonio Paulo Jacinto Eusebio","M","Faro"},{1789,"Ana Catarina Veiga Santos Mendonca Mendes","F","Setubal"},{1309,"Wanda Olavo Correa D'azevedo Guimaraes","F","Lisboa"}}},{"PSD","Partido Social Democrata",89,{{2045, "Pedro Manuel Mamede Passos Coelho","M","Lisboa"},{2356,"Maria Manuela Pereira Tender","F","Vila Real"},{2932,"Sara Martins Marques dos Santos Madruga da Costa","F","Madeira"},{2467,"Isaura Leonor Marques de Figueiredo Silva Pedro","F","Viseu"}}},{"BE","Bloco de Esquerda",19,{{3567,"Joana Rodrigues Mortagua","F","Setubal"},{3876,"Joao Manuel Duarte Vasconcelos","M","Faro"},{3211,"Sandra Mestre da Cunha","F","Setubal"},{3004,"Catarina Soares Martins","F","Porto"}}}}};
+    //pt={"Portugal",{{"PS","Partido Socialista",86,{{1321,"Alexandre Tiedtke Quintanilha","M","Porto"},{1456,"Antonio Paulo Jacinto Eusebio","M","Faro"},{1789,"Ana Catarina Veiga Santos Mendonca Mendes","F","Setubal"},{1309,"Wanda Olavo Correa D'azevedo Guimaraes","F","Lisboa"}}},{"PSD","Partido Social Democrata",89,{{2045, "Pedro Manuel Mamede Passos Coelho","M","Lisboa"},{2356,"Maria Manuela Pereira Tender","F","Vila Real"},{2932,"Sara Martins Marques dos Santos Madruga da Costa","F","Madeira"},{2467,"Isaura Leonor Marques de Figueiredo Silva Pedro","F","Viseu"}}},{"BE","Bloco de Esquerda",19,{{3567,"Joana Rodrigues Mortagua","F","Setubal"},{3876,"Joao Manuel Duarte Vasconcelos","M","Faro"},{3211,"Sandra Mestre da Cunha","F","Setubal"},{3004,"Catarina Soares Martins","F","Porto"}}}}};
     menu0();
 }
 
@@ -121,6 +121,7 @@ void menu1(){
                 }
                     else
                         if(n==0){
+                            system("cls");
                             menu0();
                         }
 }
@@ -384,7 +385,8 @@ void menu7(){
 void menu8(){
     system("cls");
     int n;
-    printf("Trabalho pratico de APROG\n");
+    printf("Trabalho pratico de APROG\n\n");
+    printf("Ano letivo 2016-2017\n\n");
     printf("Autores:\n");
     printf("- Andre Moura\n");
     printf("- Alberto Santos\n");
@@ -393,7 +395,8 @@ void menu8(){
     scanf("%d",&n);
     while(n!=0){
         system("cls");
-        printf("Trabalho pratico de APROG\n");
+        printf("Trabalho pratico de APROG\n\n");
+        printf("Ano letivo 2016-2017\n\n");
         printf("Autores:\n");
         printf("- Andre Moura\n");
         printf("- Alberto Santos\n");
