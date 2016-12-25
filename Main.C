@@ -30,14 +30,16 @@ char pais;
 tPartidos partidos;
 }tParlamento;
 
+/*MAIN*/
 int main()
 {
     tParlamento pt;
     /* Vetor inicial: Registo do País, os partidos do seu parlamento assim como os deputados que o compõem */
-    //pt={"Portugal",{{"PS","Partido Socialista",86,{{1321,"Alexandre Tiedtke Quintanilha","M","Porto"},{1456,"Antonio Paulo Jacinto Eusebio","M","Faro"},{1789,"Ana Catarina Veiga Santos Mendonca Mendes","F","Setubal"},{1309,"Wanda Olavo Correa D'azevedo Guimaraes","F","Lisboa"}}},{"PSD","Partido Social Democrata",89,{{2045, "Pedro Manuel Mamede Passos Coelho","M","Lisboa"},{2356,"Maria Manuela Pereira Tender","F","Vila Real"},{2932,"Sara Martins Marques dos Santos Madruga da Costa","F","Madeira"},{2467,"Isaura Leonor Marques de Figueiredo Silva Pedro","F","Viseu"}}},{"BE","Bloco de Esquerda",19,{{3567,"Joana Rodrigues Mortagua","F","Setubal"},{3876,"Joao Manuel Duarte Vasconcelos","M","Faro"},{3211,"Sandra Mestre da Cunha","F","Setubal"},{3004,"Catarina Soares Martins","F","Porto"}}}}};
+    //pt={"Portugal",{{"PS","Partido Socialista",86,{{1321,"Alexandre Tiedtke Quintanilha",'M',"Porto"},{1456,"Antonio Paulo Jacinto Eusebio",'M',"Faro"},{1789,"Ana Catarina Veiga Santos Mendonca Mendes",'F',"Setubal"},{1309,"Wanda Olavo Correa D'azevedo Guimaraes",'F',"Lisboa"}}},{"PSD","Partido Social Democrata",89,{{2045, "Pedro Manuel Mamede Passos Coelho",'M',"Lisboa"},{2356,"Maria Manuela Pereira Tender",'F',"Vila Real"},{2932,"Sara Martins Marques dos Santos Madruga da Costa",'F',"Madeira"},{2467,"Isaura Leonor Marques de Figueiredo Silva Pedro",'F',"Viseu"}}},{"BE","Bloco de Esquerda",19,{{3567,"Joana Rodrigues Mortagua",'F',"Setubal"},{3876,"Joao Manuel Duarte Vasconcelos",'M',"Faro"},{3211,"Sandra Mestre da Cunha",'F',"Setubal"},{3004,"Catarina Soares Martins",'F',"Porto"}}}}};
     menu0();
 }
 
+/*Menu Inicial*/
 void menu0(){
     int n;
     system("cls");
@@ -91,6 +93,8 @@ void menu0(){
                                                             menu8();
 }
 
+
+/*Menu Parlamento: inserir, mostrar ou eliminar informacao do parlamento*/
 void menu1(){
     int n;
     system("cls");
@@ -125,7 +129,7 @@ void menu1(){
                             menu0();
                         }
 }
-
+/*Inserir*/
 void menu11(){
     int n;
     printf("Inserir\n\n");
@@ -139,7 +143,7 @@ void menu11(){
     }
     menu1();
 }
-
+/*Mostrar*/
 void menu12(){
     int n;
     printf("Mostrar\n\n");
@@ -153,7 +157,7 @@ void menu12(){
     }
     menu1();
 }
-
+/*Eliminar*/
 void menu13(){
     int n;
     printf("Eliminar\n\n");
@@ -168,6 +172,8 @@ void menu13(){
     menu1();
 }
 
+
+/*Menu Partidos: inserir, mostrar ou eliminar informacao do partido*/
 void menu2(){
     int n;
     system("cls");
@@ -201,7 +207,7 @@ void menu2(){
                             menu0();
                         }
 }
-
+/*Inserir*/
 void menu21(){
     int n;
     printf("Inserir\n\n");
@@ -215,7 +221,7 @@ void menu21(){
     }
     menu2();
 }
-
+/*Mostrar*/
 void menu22(){
     int n;
     printf("Mostrar\n\n");
@@ -229,7 +235,7 @@ void menu22(){
     }
     menu2();
 }
-
+/*Eliminar*/
 void menu23(){
     int n;
     printf("Eliminar\n\n");
@@ -244,6 +250,8 @@ void menu23(){
     menu2();
 }
 
+
+/*Menu Deputados: inserir, mostrar ou eliminar informacao do deputado*/
 void menu3(){
     int n;
     system("cls");
@@ -277,7 +285,7 @@ void menu3(){
                             menu0();
                         }
 }
-
+/*Inserir*/
 void menu31(){
     int n;
     printf("Inserir\n\n");
@@ -291,7 +299,7 @@ void menu31(){
     }
     menu3();
 }
-
+/*Mostrar*/
 void menu32(){
     int n;
     printf("Mostrar\n\n");
@@ -305,7 +313,7 @@ void menu32(){
     }
     menu3();
 }
-
+/*Eliminar*/
 void menu33(){
     int n;
     printf("Eliminar\n\n");
@@ -320,6 +328,7 @@ void menu33(){
     menu3();
 }
 
+/*Total de Partidos*/
 void menu4(){
     int n;
     system("cls");
@@ -335,6 +344,7 @@ void menu4(){
     menu0();
 }
 
+/*Total e média de deputados do sexo feminino*/
 void menu5(){
     int n;
     system("cls");
@@ -350,6 +360,7 @@ void menu5(){
     menu0();
 }
 
+/*Percentagem de deputados que um partido tem*/
 void menu6(){
     int n;
     system("cls");
@@ -365,6 +376,7 @@ void menu6(){
     menu0();
 }
 
+/*Partido mais e menos votado*/
 void menu7(){
     int n;
     system("cls");
@@ -382,27 +394,5 @@ void menu7(){
     menu0();
 }
 
+/*Informações sobre o trabalho*/
 void menu8(){
-    system("cls");
-    int n;
-    printf("Trabalho pratico de APROG\n\n");
-    printf("Ano letivo 2016-2017\n\n");
-    printf("Autores:\n");
-    printf("- Andre Moura\n");
-    printf("- Alberto Santos\n");
-    printf("- Miguel Mestre\n\n");
-    printf("Pressione 0 para voltar\n");
-    scanf("%d",&n);
-    while(n!=0){
-        system("cls");
-        printf("Trabalho pratico de APROG\n\n");
-        printf("Ano letivo 2016-2017\n\n");
-        printf("Autores:\n");
-        printf("- Andre Moura\n");
-        printf("- Alberto Santos\n");
-        printf("- Miguel Mestre\n\n");
-        printf("Invalido. Pressione 0 para voltar\n");
-        scanf("%d",&n);
-    }
-    menu0();
-}
