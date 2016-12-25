@@ -395,4 +395,26 @@ void menu7(){
 }
 
 /*Informações sobre o trabalho*/
-void menu8(){
+void menu8(){system("cls");
+    int n;
+    printf("Trabalho pratico de APROG\n\n");
+    printf("Ano letivo 2016-2017\n\n");
+    printf("Autores:\n");
+    printf("- Andre Moura\n");
+    printf("- Alberto Santos\n");
+    printf("- Miguel Mestre\n\n");
+    printf("Pressione 0 para voltar\n");
+    scanf("%d",&n);
+    while(n!=0){
+       system("cls");
+       printf("Trabalho pratico de APROG\n\n");
+       printf("Ano letivo 2016-2017\n\n");
+       printf("Autores:\n");
+       printf("- Andre Moura\n");
+       printf("- Alberto Santos\n");
+       printf("- Miguel Mestre\n\n");
+       printf("Invalido. Pressione 0 para voltar\n");
+       scanf("%d",&n);
+   }
+   menu0();
+}
