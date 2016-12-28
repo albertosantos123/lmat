@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX 50
+#define MAX 100
 
 /* Estrutura Deputado */
 typedef struct D{
-char codigo[MAX];
+int codigo;
 char nome [MAX];
 char genero;
 char circulo[MAX];
@@ -30,23 +30,6 @@ char pais;
 tPartidos partidos;
 }tParlamento;
 
-void lerparlamentos(tParlamento vetor, int n){
-    int i;
-    for (i=0; i<n; i++){
-        printf("%c :",vetor[0]);
-        printf("%c - %c - %d deputados;", vetor[1][i][0],vetor[1][i][1],vetor[1][i][2] );
-    }
-}
-
-void lerpartidos(tParlamento vetor, int p){
-    int i,j;
-    for (i=0;i<p;i++){
-        printf("%c :", vetor[1][i][1]);
-        for (j=0;j<vetor[1][i][2];j++){
-            printf("%d - %c - %c - %c \n",vetor[1][3][j][0],vetor[1][3][j][1],vetor[1][3][j][2],vetor[1][3][j][3]);
-        }
-    }
-}
 
 /*MAIN*/
 int main()
@@ -55,7 +38,6 @@ int main()
     tParlamento pt;
     /* Vetor inicial: Registo do País, os partidos do seu parlamento assim como os deputados que o compõem */
     pt={"Portugal",{{"PS","Partido Socialista",4,{{1321,"Alexandre Tiedtke Quintanilha",'M',"Porto"},{1456,"Antonio Paulo Jacinto Eusebio",'M',"Faro"},{1789,"Ana Catarina Veiga Santos Mendonca Mendes",'F',"Setubal"},{1309,"Wanda Olavo Correa D'azevedo Guimaraes",'F',"Lisboa"}}},{"PSD","Partido Social Democrata",5,{{2045, "Pedro Manuel Mamede Passos Coelho",'M',"Lisboa"},{2778,"Luís Filipe Montenegro Cardoso de Morais Esteves",'M',"Aveiro"},{2356,"Maria Manuela Pereira Tender",'F',"Vila Real"},{2932,"Sara Martins Marques dos Santos Madruga da Costa",'F',"Madeira"},{2467,"Isaura Leonor Marques de Figueiredo Silva Pedro",'F',"Viseu"}}},{"BE","Bloco de Esquerda",3,{{3567,"Joana Rodrigues Mortagua",'F',"Setubal"},{3876,"Joao Manuel Duarte Vasconcelos",'M',"Faro"},{3004,"Catarina Soares Martins",'F',"Porto"}}}}};
-    lerparlamentos(pt, 3);
     return 0;
 }
 
