@@ -1,44 +1,61 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_project_file>
-	<FileVersion major="1" minor="6" />
-	<Project>
-		<Option title="blocodenotas" />
-		<Option pch_mode="2" />
-		<Option compiler="gcc" />
-		<Build>
-			<Target title="Debug">
-				<Option output="bin/Debug/blocodenotas" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-			</Target>
-			<Target title="Release">
-				<Option output="bin/Release/blocodenotas" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-O2" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
-			</Target>
-		</Build>
-		<Compiler>
-			<Add option="-Wall" />
-		</Compiler>
-		<Unit filename="main.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-			<lib_finder disable_auto="1" />
-		</Extensions>
-	</Project>
-</CodeBlocks_project_file>
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 50
+
+/* Estrutura Deputado */
+typedef struct D{
+char codigo[MAX];
+char nome [MAX];
+char genero;
+char circulo[MAX];
+}tDeputado;
+
+/* Estrutura Deputados */
+typedef tDeputado tDeputados[MAX];
+
+/* Estrutura Partido */
+typedef struct P{
+char sigla[MAX];
+char nome[MAX];
+int qtd;
+tDeputados deputados;
+}tPartido;
+
+/* Estrutura Partidos */
+typedef tPartido tPartidos[MAX];
+
+/* Estrutura Parlamento */
+typedef struct Pa{
+char pais;
+tPartidos partidos;
+}tParlamento;
+
+void lerparlamentos(tParlamento vetor, int n){
+    int i;
+    for (i=0; i<n; i++){
+        printf("%c :",vetor[0]);
+        printf("%c - %c - %d deputados;", vetor[1][i][0],vetor[1][i][1],vetor[1][i][2] );
+    }
+}
+
+void lerpartidos(tParlamento vetor, int p){
+    int i,j;
+    for (i=0;i<p;i++){
+        printf("%c :", vetor[1][i][1]);
+        for (j=0;j<vetor[1][i][2];j++){
+            printf("%d - %c - %c - %c \n",vetor[1][3][j][0],vetor[1][3][j][1],vetor[1][3][j][2],vetor[1][3][j][3]);
+        }
+    }
+}
+
+/*MAIN*/
+int main()
+{
+    int a;
+    tParlamento pt;
+    /* Vetor inicial: Registo do País, os partidos do seu parlamento assim como os deputados que o compõem */
+    pt={"Portugal",{{"PS","Partido Socialista",4,{{1321,"Alexandre Tiedtke Quintanilha",'M',"Porto"},{1456,"Antonio Paulo Jacinto Eusebio",'M',"Faro"},{1789,"Ana Catarina Veiga Santos Mendonca Mendes",'F',"Setubal"},{1309,"Wanda Olavo Correa D'azevedo Guimaraes",'F',"Lisboa"}}},{"PSD","Partido Social Democrata",5,{{2045, "Pedro Manuel Mamede Passos Coelho",'M',"Lisboa"},{2778,"Luís Filipe Montenegro Cardoso de Morais Esteves",'M',"Aveiro"},{2356,"Maria Manuela Pereira Tender",'F',"Vila Real"},{2932,"Sara Martins Marques dos Santos Madruga da Costa",'F',"Madeira"},{2467,"Isaura Leonor Marques de Figueiredo Silva Pedro",'F',"Viseu"}}},{"BE","Bloco de Esquerda",3,{{3567,"Joana Rodrigues Mortagua",'F',"Setubal"},{3876,"Joao Manuel Duarte Vasconcelos",'M',"Faro"},{3004,"Catarina Soares Martins",'F',"Porto"}}}}};
+    lerparlamentos(pt, 3);
+    return 0;
+}
+
