@@ -26,7 +26,7 @@ typedef tPartido tPartidos[MAX];
 
 /* Estrutura Parlamento */
 typedef struct Pa{
-char pais;
+char pais[MAX];
 tPartidos partidos;
 }tParlamento;
 
@@ -47,9 +47,9 @@ int main()
 
 void mostrarparl(tParlamento x, int np){
     int i;
-    printf("%c :",x.pais);
+    printf("%s :\n",x.pais);
     for (i=0;i<np;i++){
-        printf("%c - %c - %d", x.partidos[i].sigla, x.partidos[i].nome,x.partidos[i].qtd);
+        printf("%s - %s - %d\n", x.partidos[i].sigla, x.partidos[i].nome,x.partidos[i].qtd);
     }
 }
 
