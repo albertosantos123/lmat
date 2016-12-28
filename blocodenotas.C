@@ -38,6 +38,16 @@ void mostrarparl(tParlamento x, int np){
     }
 }
 
+void mostrarpartid(tParlamento x,int np, int nd){
+    int i, j;
+    for (i=0;i<np;i++){
+        printf("%s - %s - %d deputados:\n\n",x.partidos[i].sigla, x.partidos[i].nome,x.partidos[i].qtd);
+    for (j=0;j<nd;j++){
+        printf("%s\n", x.partidos[i].deputados[j].nome);
+    }
+    }
+}
+
 void mostrardep (tParlamento x, int np,int nd){
     int i,j;
     for(i=0;i<np;i++){
