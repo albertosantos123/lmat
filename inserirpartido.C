@@ -43,9 +43,9 @@ void mostrarpartid(tParlamento x,int np){
 
 int inserirpart(tParlamento *x, int np){
     printf("Qual a sigla do novo partido?\n");
-    gets((*x).partidos[np+1].sigla);
+    gets((*x).partidos[np].sigla);
     printf("Qual o nome do partido?\n");
-    gets((*x).partidos[np+1].nome);
+    gets((*x).partidos[np].nome);
     np=np+1;
     return np;
 }
