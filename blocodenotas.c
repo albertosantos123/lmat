@@ -1,3 +1,468 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 50
+
+
+/* Estrutura Deputado */
+typedef struct D
+{
+    char codigo[MAX];
+    char nome [MAX];
+    char genero;
+    char circulo[MAX];
+} tDeputado;
+
+/* Estrutura Deputados */
+typedef tDeputado tDeputados[MAX];
+
+/* Estrutura Partido */
+typedef struct P
+{
+    char sigla[MAX];
+    char nome[MAX];
+    int qtd;
+    tDeputados deputados;
+} tPartido;
+
+/* Estrutura Partidos */
+typedef tPartido tPartidos[MAX];
+
+/* Estrutura Parlamento */
+typedef struct Pa
+{
+    char pais;
+    tPartidos partidos;
+} tParlamento;
+
+int menu0()
+{
+    int n;
+    system("cls");
+    printf("Selecione uma opcao:\n\n");
+    printf("1. Inserir, mostrar ou eliminar informacao do parlamento\n");
+    printf("2. Inserir, mostrar ou eliminar informacao dos partidos\n");
+    printf("3. Inserir, mostrar ou eliminar informacao dos deputados\n");
+    printf("4. Total de partidos do parlamento\n");
+    printf("5. Total e media de deputados do sexo feminino\n");
+    printf("6. Percentagem de deputados de um partido\n");
+    printf("7. Partido mais e menos votado\n");
+    printf("8. Informacoes do programa\n");
+    printf("0. Sair do programa\n");
+    scanf("%d",&n);
+    return n;
+}
+
+int menu1()
+{
+    int n;
+    system("cls");
+    printf("Parlamento:\n");
+    printf("Selecione uma opcao:\n");
+    printf("1. Inserir dados\n");
+    printf("2. Mostrar dados\n");
+    printf("3. Eliminar dados\n");
+    printf("0. Voltar atras\n");
+    scanf("%d",&n);
+    return n;
+}
+
+/*Inserir*/
+void menu11()
+{
+    int n;
+    system("cls");
+    printf("Inserir\n\n");
+    do
+    {
+        printf("0. Voltar atras\n");
+        scanf("%d",&n);
+        switch(n)
+        {
+        case 0:
+        {
+            break;
+        }
+        default:
+        {
+            printf("Invalido. Introduza novamente:\n");
+            getch();
+            fflush(stdin);
+        }
+        }
+    }
+    while (n!=0);
+}
+
+void menu12()
+{
+    int n,i;
+    system("cls");
+    printf("Mostrar\n\n");
+    do
+    {
+        printf("0. Voltar atras\n");
+        scanf("%d",&n);
+        switch(n)
+        {
+        case 0:
+        {
+            break;
+        }
+        default:
+        {
+            printf("Invalido. Introduza novamente:\n");
+            getch();
+            fflush(stdin);
+        }
+        }
+    }
+    while (n!=0);
+}
+
+void menu13()
+{
+    int n;
+    system("cls");
+    printf("Eliminar\n\n");
+    do
+    {
+        printf("0. Voltar atras\n");
+        scanf("%d",&n);
+        switch(n)
+        {
+        case 0:
+        {
+            break;
+        }
+        default:
+        {
+            printf("Invalido. Introduza novamente:\n");
+            getch();
+            fflush(stdin);
+        }
+        }
+    }
+    while (n!=0);
+}
+
+int menu2()
+{
+    int n;
+    system("cls");
+    printf("Partidos:\n");
+    printf("Selecione uma opcao:\n");
+    printf("1. Inserir dados\n");
+    printf("2. Mostrar dados\n");
+    printf("3. Eliminar dados\n");
+    printf("0. Voltar atras\n");
+    scanf("%d",&n);
+    return n;
+}
+
+void menu21()
+{
+    int n;
+    system("cls");
+    printf("Inserir\n\n");
+    do
+    {
+        printf("0. Voltar atras\n");
+        scanf("%d",&n);
+        switch(n)
+        {
+        case 0:
+        {
+            break;
+        }
+        default:
+        {
+            printf("Invalido. Introduza novamente:\n");
+            getch();
+            fflush(stdin);
+        }
+        }
+    }
+    while (n!=0);
+}
+
+void menu22()
+{
+    int n;
+    system("cls");
+    printf("Mostrar\n\n");
+    do
+    {
+        printf("0. Voltar atras\n");
+        scanf("%d",&n);
+        switch(n)
+        {
+        case 0:
+        {
+            break;
+        }
+        default:
+        {
+            printf("Invalido. Introduza novamente:\n");
+            getch();
+            fflush(stdin);
+        }
+        }
+    }
+    while (n!=0);
+}
+
+void menu23()
+{
+    int n;
+    system("cls");
+    printf("Eliminar\n\n");
+    do
+    {
+        printf("0. Voltar atras\n");
+        scanf("%d",&n);
+        switch(n)
+        {
+        case 0:
+        {
+            break;
+        }
+        default:
+        {
+            printf("Invalido. Introduza novamente:\n");
+            getch();
+            fflush(stdin);
+        }
+        }
+    }
+    while (n!=0);
+}
+
+int menu3()
+{
+    int n;
+    system("cls");
+    printf("Deputados:\n");
+    printf("Selecione uma opcao:\n");
+    printf("1. Inserir dados\n");
+    printf("2. Mostrar dados\n");
+    printf("3. Eliminar dados\n");
+    printf("0. Voltar atras\n");
+    scanf("%d",&n);
+    return n;
+}
+
+void menu31()
+{
+    int n;
+    system("cls");
+    printf("Inserir\n\n");
+    do
+    {
+        printf("0. Voltar atras\n");
+        scanf("%d",&n);
+        switch(n)
+        {
+        case 0:
+        {
+            break;
+        }
+        default:
+        {
+            printf("Invalido. Introduza novamente:\n");
+            getch();
+            fflush(stdin);
+        }
+        }
+    }
+    while (n!=0);
+}
+
+void menu32()
+{
+    int n;
+    system("cls");
+    printf("Mostrar\n\n");
+    do
+    {
+        printf("0. Voltar atras\n");
+        scanf("%d",&n);
+        switch(n)
+        {
+        case 0:
+        {
+            break;
+        }
+        default:
+        {
+            printf("Invalido. Introduza novamente:\n");
+            getch();
+            fflush(stdin);
+        }
+        }
+    }
+    while (n!=0);
+}
+
+void menu33()
+{
+    int n;
+    system("cls");
+    printf("Eliminar\n\n");
+    do
+    {
+        printf("0. Voltar atras\n");
+        scanf("%d",&n);
+        switch(n)
+        {
+        case 0:
+        {
+            break;
+        }
+        default:
+        {
+            printf("Invalido. Introduza novamente:\n");
+            getch();
+            fflush(stdin);
+        }
+        }
+    }
+    while (n!=0);
+}
+
+void menu4()
+{
+    int n;
+    system("cls");
+    printf("Total de partidos:\n\n");
+    do
+    {
+        printf("0. Voltar atras\n");
+        scanf("%d",&n);
+        switch(n)
+        {
+        case 0:
+        {
+            break;
+        }
+        default:
+        {
+            printf("Invalido. Introduza novamente:\n");
+            getch();
+            fflush(stdin);
+        }
+        }
+    }
+    while (n!=0);
+}
+
+void menu5()
+{
+    int n;
+    system("cls");
+    printf("Total e media de deputados do sexo feminino:\n\n");
+    do
+    {
+        printf("0. Voltar atras\n");
+        scanf("%d",&n);
+        switch(n)
+        {
+        case 0:
+        {
+            break;
+        }
+        default:
+        {
+            printf("Invalido. Introduza novamente:\n");
+            getch();
+            fflush(stdin);
+        }
+        }
+    }
+    while (n!=0);
+}
+
+void menu6()
+{
+    int n;
+    system("cls");
+    printf("Percentagem de deputados do partido:\n\n");
+    do
+    {
+        printf("0. Voltar atras\n");
+        scanf("%d",&n);
+        switch(n)
+        {
+        case 0:
+        {
+            break;
+        }
+        default:
+        {
+            printf("Invalido. Introduza novamente:\n");
+            getch();
+            fflush(stdin);
+        }
+        }
+    }
+    while (n!=0);
+}
+void menu7()
+{
+    int n;
+    system("cls");
+    printf("Partido mais votado:\n");
+    printf("Partido menos votado:\n\n");
+    do
+    {
+        printf("0. Voltar atras\n");
+        scanf("%d",&n);
+        switch(n)
+        {
+        case 0:
+        {
+            break;
+        }
+        default:
+        {
+            printf("Invalido. Introduza novamente:\n");
+            getch();
+            fflush(stdin);
+        }
+        }
+    }
+    while (n!=0);
+}
+void menu8()
+{
+    int n;
+    system("cls");
+    printf("Trabalho pratico de APROG\n\n");
+    printf("Ano letivo 2016-2017\n\n");
+    printf("Autores:\n");
+    printf("- Andre Moura\n");
+    printf("- Alberto Santos\n");
+    printf("- Miguel Mestre\n\n");
+    do
+    {
+        printf("0. Voltar atras\n");
+        scanf("%d",&n);
+        switch(n)
+        {
+        case 0:
+        {
+            break;
+        }
+        default:
+        {
+            printf("Invalido. Introduza novamente:\n");
+            getch();
+            fflush(stdin);
+        }
+        }
+    }
+    while (n!=0);
+}
+
 /*MAIN*/
 int main()
 {
@@ -13,19 +478,19 @@ int main()
                         switch (n){
                             case 1:
                                 {
-                                    n=menu11();
+                                    menu11();
                                 }
                             case 2:
                                 {
-                                    n=menu12();
+                                    menu12();
                                 }
                             case 3:
                                 {
-                                    n=menu13();
+                                    menu13();
                                 }
                             case 0:
                                 {
-                                    n=menu1();
+                                    menu1();
                                 }
                             default:
                                 {
