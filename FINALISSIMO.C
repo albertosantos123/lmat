@@ -37,7 +37,7 @@ typedef struct Pa
 /* Função mostrar parlamento */
 void mostrarparl(tParlamento x, int np){
     int i;
-    printf("\n%s :\n",x.pais);
+    printf("\n %s :\n", x.pais);
     for (i=0;i<np;i++){                                                     //ciclo que corre todos os partidos e mostra a sigla e nome
         printf("%s - %s \n", x.partidos[i].sigla, x.partidos[i].nome);
     }
@@ -77,23 +77,23 @@ void inserirdep(tParlamento *x, int np,int *nf)
 {
     char str[15];
     int ret,i,cont=0;
-    printf("Em que partido quer adicionar o deputado?\n");
+    printf("Em que partido quer adicionar o deputado? (sigla)\n");
     gets(str);
     for (i=0;i<np;i++){
         ret=strcmp((*x).partidos[i].sigla,str);
         if(ret==0){
-            printf("Qual o nome do deputado a adicionar??\n");
+            printf("Qual o nome do deputado a adicionar?\n");
             gets((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].nome);
             fflush(stdin);
-            printf("Qual o circulo eleitoral do deputado a adicionar??\n");
+            printf("Qual o circulo eleitoral do deputado a adicionar?\n");
             gets((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].circulo);
             fflush(stdin);
-            printf("Qual o genero do deputado a adicionar??\n");
+            printf("Qual o genero do deputado a adicionar? (M ou F)\n");
             scanf("%c",&((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].genero));
             if(((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].genero)=='F')
                 (*nf)++;
             fflush(stdin);
-            printf("Qual o codigo do deputado a adicionar??\n");
+            printf("Qual o codigo do deputado a adicionar?\n");
             scanf("%d",&((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].codigo));
             fflush(stdin);
             ((*x).partidos[cont].qtd)++;
