@@ -157,7 +157,7 @@ void eliminarpart(tParlamento *x, int *np){
 
 int main(){
     tParlamento pt= {"Portugal",{{"PS","Partido Socialista",4,{{1321,"Alexandre Tiedtke Quintanilha",'M',"Porto"},{1456,"Antonio Paulo Jacinto Eusebio",'M',"Faro"},{1789,"Ana Catarina Veiga Santos Mendonca Mendes",'F',"Setubal"},{1309,"Wanda Olavo Correa D'azevedo Guimaraes",'F',"Lisboa"}}},{"PSD","Partido Social Democrata",5,{{2045, "Pedro Manuel Mamede Passos Coelho",'M',"Lisboa"},{2778,"Luís Filipe Montenegro Cardoso de Morais Esteves",'M',"Aveiro"},{2356,"Maria Manuela Pereira Tender",'F',"Vila Real"},{2932,"Sara Martins Marques dos Santos Madruga da Costa",'F',"Madeira"},{2467,"Isaura Leonor Marques de Figueiredo Silva Pedro",'F',"Viseu"}}},{"BE","Bloco de Esquerda",3,{{3567,"Joana Rodrigues Mortagua",'F',"Setubal"},{3876,"Joao Manuel Duarte Vasconcelos",'M',"Faro"},{3004,"Catarina Soares Martins",'F',"Porto"}}}}};
-    int n, np=3, nf=7;
+    int n, np=3, nf=7,ndep=12;
     do{
             printf("Selecione uma opcao:\n\n");
             printf("1. Mostrar Parlamento\n");
@@ -170,8 +170,10 @@ int main(){
             printf("8. Eliminar Deputado\n");
             printf("9. Total e media de Deputados do sexo feminino\n");
             printf("10. Presenca no Parlamento\n");
+            printf("11. Informacoes\n");
             printf("0. Sair do programa\n");
             scanf("%d",&n);
+            mudarpais(&pt);
             if (n==1){
                 system("cls");
                 mostrarparl(pt,np);
@@ -187,6 +189,41 @@ int main(){
             if (n==4){
                 system("cls");
                 mudarpais(&pt);
+            }
+            if (n==5){
+                system("cls");
+                inserirpart(&pt,&np);
+            }
+            if (n==6){
+                system("cls");
+                eliminarpart(&pt,&np);
+            }
+            if (n==7){
+                system("cls");
+                inserirdep(&pt,np);
+            }
+            if (n==8){
+                system("cls");
+                eliminardep(&pt,np);
+            }
+            if (n==9){
+                system("cls");
+                printf("Numero de deputados do sexo feminino: %d\n", nf);
+                float perc=nf/ndep*100;
+                printf("Percentagem de mulheres no palrlamento: %.2f por cento\n",perc);
+            }
+            if (n==10){
+                system("cls");
+
+            }
+            if (n==11){
+                system("cls");
+                printf("Trabalho pratico de APROG\n\n");
+                printf("Ano letivo 2016-2017\n\n");
+                printf("Autores:\n");
+                printf("- Andre Moura\n");
+                printf("- Alberto Santos\n");
+                printf("- Miguel Mestre\n\n");
             }
             system("pause");
             system("cls");
