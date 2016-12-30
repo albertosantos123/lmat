@@ -121,7 +121,6 @@ void menu1(tParlamento x, int np)
 {
     int n,i;
     system("cls");
-    printf("%d\n",MAX);
     printf("Parlamento:\n");
     printf("\n%s :\n",x.pais);
     for (i=0;i<np;i++){
@@ -154,56 +153,6 @@ void menu9()
     }
     while (n!=0);
 }
-void menu12()
-{
-    int n,i;
-    system("cls");
-    printf("Mostrar\n\n");
-    do
-    {
-        printf("0. Voltar atras\n");
-        scanf("%d",&n);
-        switch(n)
-        {
-        case 0:
-        {
-            break;
-        }
-        default:
-        {
-            printf("Invalido. Introduza novamente:\n");
-            getch();
-            fflush(stdin);
-        }
-        }
-    }
-    while (n!=0);
-}
-void menu13()
-{
-    int n;
-    system("cls");
-    printf("Eliminar\n\n");
-    do
-    {
-        printf("0. Voltar atras\n");
-        scanf("%d",&n);
-        switch(n)
-        {
-        case 0:
-        {
-            break;
-        }
-        default:
-        {
-            printf("Invalido. Introduza novamente:\n");
-            getch();
-            fflush(stdin);
-        }
-        }
-    }
-    while (n!=0);
-}
 void menu2(tParlamento x, int np)
 {
     int n,i,j;
@@ -216,64 +165,6 @@ void menu2(tParlamento x, int np)
             printf("%s\n", x.partidos[i].deputados[j].nome);
         }
     }
-}
-
-void menu21()
-{
-    int n;
-    system("cls");
-    printf("Inserir\n\n");
-    do
-    {
-        printf("0. Voltar atras\n");
-        scanf("%d",&n);
-        switch(n)
-        {
-        case 0:
-        {
-            break;
-        }
-        default:
-        {
-            printf("Invalido. Introduza novamente:\n");
-            getch();
-            fflush(stdin);
-        }
-        }
-    }
-    while (n!=0);
-}
-void menu22()
-{
-    int n;
-    system("cls");
-    printf("Mostrar\n\n");
-    do
-    {
-        printf("0. Voltar atras\n");
-        scanf("%d",&n);
-        switch(n)
-        {
-        case 0:
-        {
-            break;
-        }
-        default:
-        {
-            printf("Invalido. Introduza novamente:\n");
-            getch();
-            fflush(stdin);
-        }
-        }
-    }
-    while (n!=0);
-}
-
-void menu23()
-{
-    int n;
-    system("cls");
-    printf("Eliminar\n\n");
     do
     {
         printf("0. Voltar atras\n");
@@ -309,83 +200,6 @@ void menu3(tParlamento x, int np)
                     printf("%d - %s - %c - %s\n", x.partidos[i].deputados[j].codigo, x.partidos[i].deputados[j].nome, x.partidos[i].deputados[j].genero, x.partidos[i].deputados[j].circulo);
             }
         }
-        printf("0. Voltar atras\n");
-        scanf("%d",&n);
-        switch(n)
-        {
-        case 0:
-        {
-            break;
-        }
-        default:
-        {
-            printf("Invalido. Introduza novamente:\n");
-            getch();
-            fflush(stdin);
-        }
-        }
-    }
-    while (n!=0);
-}
-
-void menu31()
-{
-    int n;
-    system("cls");
-    printf("Inserir\n\n");
-    do
-    {
-        printf("0. Voltar atras\n");
-        scanf("%d",&n);
-        switch(n)
-        {
-        case 0:
-        {
-            break;
-        }
-        default:
-        {
-            printf("Invalido. Introduza novamente:\n");
-            getch();
-            fflush(stdin);
-        }
-        }
-    }
-    while (n!=0);
-}
-void menu32()
-{
-    int n;
-    system("cls");
-    printf("Mostrar\n\n");
-    do
-    {
-        printf("0. Voltar atras\n");
-        scanf("%d",&n);
-        switch(n)
-        {
-        case 0:
-        {
-            break;
-        }
-        default:
-        {
-            printf("Invalido. Introduza novamente:\n");
-            getch();
-            fflush(stdin);
-        }
-        }
-    }
-    while (n!=0);
-}
-
-void menu33()
-{
-    int n;
-    system("cls");
-    printf("Eliminar\n\n");
-    do
-    {
         printf("0. Voltar atras\n");
         scanf("%d",&n);
         switch(n)
