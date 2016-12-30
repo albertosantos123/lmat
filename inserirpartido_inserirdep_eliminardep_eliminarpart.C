@@ -147,14 +147,16 @@ void totalfeminino(int *nf,tParlamento pt,int np){
 }
 
 void presenca(tParlamento x,int nt,int np){
-    int i;
-    float a,b;
-    a=x.partidos[i].qtd;
-    b=100/nt;
+    int i,maior=0,menor=0;
     for(i=0;i<np;i++){
-        a=x.partidos[i].qtd;
         printf("%s: %d por cento\n",x.partidos[i].sigla,x.partidos[i].qtd*100/nt);
+        if(x.partidos[i].qtd>x.partidos[maior].qtd)
+            maior=i;
+        if(x.partidos[i].qtd<x.partidos[menor].qtd)
+            menor=i;
     }
+    printf("\nPartido mais votado: %s\n",x.partidos[maior].sigla);
+    printf("Partido menos votado: %s\n",x.partidos[menor].sigla);
 }
 
 /*MAIN*/
