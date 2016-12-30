@@ -73,7 +73,7 @@ void inserirdep(tParlamento *x, int np)
 
 }
 
-int inserirpart(tParlamento *x, int *np){
+void inserirpart(tParlamento *x, int *np){
     printf("Qual a sigla do novo partido?\n");
     gets((*x).partidos[(*np)].sigla);
     printf("Qual o nome do partido?\n");
