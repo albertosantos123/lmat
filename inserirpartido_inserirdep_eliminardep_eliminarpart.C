@@ -44,7 +44,7 @@ void mostrarpartid(tParlamento x,int np){
     }
 }
 
-void inserirdep(tParlamento *x, int np)
+void inserirdep(tParlamento *x, int np, int *nf)
 {
     char str[15];
     int ret,i,cont=0;
@@ -61,6 +61,8 @@ void inserirdep(tParlamento *x, int np)
             fflush(stdin);
             printf("Qual o genero do deputado a adicionar??\n");
             scanf("%c",&((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].genero));
+            if(((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].genero)=='F')
+                (*nf)++;
             fflush(stdin);
             printf("Qual o codigo do deputado a adicionar??\n");
             scanf("%d",&((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].codigo));
@@ -82,7 +84,7 @@ void inserirpart(tParlamento *x, int *np){
     (*np)++;
 }
 
-void eliminardep(tParlamento *x, int np){
+void eliminardep(tParlamento *x, int np, int *nf){
     char str[15];
     int cod;
     int ret,i,j,k,cont1=0,cont2=0;
@@ -97,6 +99,8 @@ void eliminardep(tParlamento *x, int np){
             fflush(stdin);
             for (j=0;j<((*x).partidos[cont1].qtd);j++){
                 if(cod==((*x).partidos[cont1].deputados[j].codigo)){
+                    if(((*x).partidos[cont1].deputados[j].genero)=='F')
+                        (*nf)--;
                     for(k=cont2;k<((*x).partidos[cont1].qtd);k++){
                     (*x).partidos[cont1].deputados[k]=(*x).partidos[cont1].deputados[k+1];
                     }
@@ -130,10 +134,20 @@ void eliminarpart(tParlamento *x, int *np){
     }
 }
 
+void totalfeminino(int *nf,tParlamento pt,int np){
+    int i,j,cont;
+    float m1,m2,m;
+    m1=*nf;
+    m2=np;
+    m=m1/m2;
+    printf("Total de deputados do sexo feminino: %d\n",*nf);
+    printf("Media de deputados femininos por partido: %f\n",m);
+}
+
 /*MAIN*/
 int main()
 {
-    int np=3;
+    int np=3,nf=7;
 
     /* Vetor inicial: Registo do País, os partidos do seu parlamento assim como os deputados que o compõem */
     tParlamento pt= {"Portugal",{{"PS","Partido Socialista",4,{{1321,"Alexandre Tiedtke Quintanilha",'M',"Porto"},
@@ -146,11 +160,12 @@ int main()
         }
     };
     inserirpart(&pt,&np);
-    inserirdep(&pt,np);
+    inserirdep(&pt,np,&nf);
     mostrarpartid(pt,np);
-    eliminardep(&pt,np);
+    eliminardep(&pt,np,&nf);
     mostrarpartid(pt,np);
     eliminarpart(&pt,&np);
     mostrarpartid(pt,np);
+    totalfeminino(&nf,pt,np);
     return 0;
 }
