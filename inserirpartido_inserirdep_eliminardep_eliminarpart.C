@@ -44,7 +44,7 @@ void mostrarpartid(tParlamento x,int np){
     }
 }
 
-void inserirdep(tParlamento *x, int np, int *nf)
+void inserirdep(tParlamento *x, int np, int *nf, int *nt)
 {
     char str[15];
     int ret,i,cont=0;
@@ -68,6 +68,7 @@ void inserirdep(tParlamento *x, int np, int *nf)
             scanf("%d",&((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].codigo));
             fflush(stdin);
             ((*x).partidos[cont].qtd)++;
+            (*nt)++;
         }
         else
             cont++;
@@ -84,7 +85,7 @@ void inserirpart(tParlamento *x, int *np){
     (*np)++;
 }
 
-void eliminardep(tParlamento *x, int np, int *nf){
+void eliminardep(tParlamento *x, int np, int *nf, int *nt){
     char str[15];
     int cod;
     int ret,i,j,k,cont1=0,cont2=0;
@@ -105,6 +106,7 @@ void eliminardep(tParlamento *x, int np, int *nf){
                     (*x).partidos[cont1].deputados[k]=(*x).partidos[cont1].deputados[k+1];
                     }
                     ((*x).partidos[cont1].qtd)--;
+                    (*nt)--;
                 }
                 else
                     cont2++;
@@ -144,10 +146,21 @@ void totalfeminino(int *nf,tParlamento pt,int np){
     printf("Media de deputados femininos por partido: %f\n",m);
 }
 
+void presenca(tParlamento x,int nt,int np){
+    int i;
+    float a,b;
+    a=x.partidos[i].qtd;
+    b=100/nt;
+    for(i=0;i<np;i++){
+        a=x.partidos[i].qtd;
+        printf("%s: %d por cento\n",x.partidos[i].sigla,x.partidos[i].qtd*100/nt);
+    }
+}
+
 /*MAIN*/
 int main()
 {
-    int np=3,nf=7;
+    int np=3,nf=7,nt=12;
 
     /* Vetor inicial: Registo do País, os partidos do seu parlamento assim como os deputados que o compõem */
     tParlamento pt= {"Portugal",{{"PS","Partido Socialista",4,{{1321,"Alexandre Tiedtke Quintanilha",'M',"Porto"},
@@ -160,12 +173,13 @@ int main()
         }
     };
     inserirpart(&pt,&np);
-    inserirdep(&pt,np,&nf);
+    inserirdep(&pt,np,&nf,&nt);
     mostrarpartid(pt,np);
-    eliminardep(&pt,np,&nf);
+    eliminardep(&pt,np,&nf,&nt);
     mostrarpartid(pt,np);
     eliminarpart(&pt,&np);
     mostrarpartid(pt,np);
     totalfeminino(&nf,pt,np);
+    presenca(pt,nt,np);
     return 0;
 }
