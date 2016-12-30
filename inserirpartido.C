@@ -47,10 +47,6 @@ void mostrarpartid(tParlamento x,int np){
 void inserirdep(tParlamento *x, int np)
 {
     char str[15];
-    char nome[50];
-    char circ[50];
-    char gen;
-    int cod;
     int ret,i,cont=0;
     printf("Qual a sigla do partido?\n");
     gets(str);
@@ -80,6 +76,10 @@ void inserirpart(tParlamento *x, int *np){
     gets((*x).partidos[(*np)].nome);
     (*x).partidos[(*np)].qtd=0;
     (*np)++;
+}
+
+void eliminardep(){
+
 }
 
 /*MAIN*/
