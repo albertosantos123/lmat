@@ -174,49 +174,50 @@ int main(){
             printf("0. Sair do programa\n");
             scanf("%d",&n);
             mudarpais(&pt);
-            if (n==1){
+            switch(n){
+            case 1:
                 system("cls");
                 mostrarparl(pt,np);
-            }
-            if (n==2){
+                break;
+            case 2:
                 system("cls");
                 mostrarpartid(pt,np);
-            }
-            if (n==3){
+                break;
+            case 3:
                 system("cls");
                 mostrardep(pt,np);
-            }
-            if (n==4){
+                break;
+            case 4:
                 system("cls");
                 mudarpais(&pt);
-            }
-            if (n==5){
+                break;
+            case 5:
                 system("cls");
                 inserirpart(&pt,&np);
-            }
-            if (n==6){
+                break;
+            case 6:
                 system("cls");
                 eliminarpart(&pt,&np);
-            }
-            if (n==7){
+                break;
+            case 7:
                 system("cls");
                 inserirdep(&pt,np);
-            }
-            if (n==8){
+                break;
+            case 8:
                 system("cls");
                 eliminardep(&pt,np);
-            }
-            if (n==9){
+                break;
+            case 9:
                 system("cls");
                 printf("Numero de deputados do sexo feminino: %d\n", nf);
                 float perc=nf/ndep*100;
                 printf("Percentagem de mulheres no palrlamento: %.2f por cento\n",perc);
-            }
-            if (n==10){
+                break;
+            case 10:
                 system("cls");
 
-            }
-            if (n==11){
+                break;
+            case 11:
                 system("cls");
                 printf("Trabalho pratico de APROG\n\n");
                 printf("Ano letivo 2016-2017\n\n");
@@ -224,6 +225,7 @@ int main(){
                 printf("- Andre Moura\n");
                 printf("- Alberto Santos\n");
                 printf("- Miguel Mestre\n\n");
+                break;
             }
             system("pause");
             system("cls");
