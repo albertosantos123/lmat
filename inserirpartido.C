@@ -32,47 +32,40 @@ typedef struct Pa
     char pais[MAX];
     tPartidos partidos;
 } tParlamento;
-/*
+
 void mostrarpartid(tParlamento x,int np){
     printf("\nMostrar Partidos:");
     int i, j;
     for (i=0;i<np;i++){
         printf("\n%s - %s - %d deputados:\n\n",x.partidos[i].sigla, x.partidos[i].nome,x.partidos[i].qtd);
     for (j=0;j<(x.partidos[i].qtd);j++){
-        printf("%s\n", x.partidos[i].deputados[j].nome);
+        printf("%d - %s - %c - %s\n",x.partidos[i].deputados[j].codigo,x.partidos[i].deputados[j].nome,x.partidos[i].deputados[j].genero,x.partidos[i].deputados[j].circulo);
     }
     }
 }
-*/
-/*
-int inserirpart(tParlamento *x, int np){
-    printf("Qual a sigla do novo partido?\n");
-    gets((*x).partidos[np].sigla);
-    printf("Qual o nome do partido?\n");
-    gets((*x).partidos[np].nome);
-    printf("Qual a quantidade?\n");
-    scanf("%d",&(*x).partidos[np].qtd);
-    np=np+1;
-    return np;
-}
-*/
+
 void inserirdep(tParlamento *x, int np)
 {
     char str[15];
+    char nome[50];
+    char circ[50];
+    char gen;
+    int cod;
     int ret,i,cont=0;
     printf("Qual a sigla do partido?\n");
     gets(str);
     for (i=0;i<np;i++){
         ret=strcmp((*x).partidos[i].sigla,str);
         if(ret==0){
-            printf("Qual o codigo do deputado?\n");
-            scanf("%d",&((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)+1].codigo));
             printf("Qual o nome do deputado??\n");
-            gets((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)+1].nome);
-            printf("Qual o genero do deputado??\n");
-            scanf("%c",&((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)+1].genero));
+            gets((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].nome);
             printf("Qual o circulo eleitoral do deputado??\n");
-            gets((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)+1].circulo);
+            gets((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].circulo);
+            printf("Qual o genero do deputado??\n");
+            scanf("%c",&((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].genero));
+            printf("Qual o codigo do deputado??\n");
+            scanf("%d",&((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].codigo));
+            ((*x).partidos[cont].qtd)++;
         }
         else
             cont++;
@@ -80,6 +73,14 @@ void inserirdep(tParlamento *x, int np)
 
 }
 
+int inserirpart(tParlamento *x, int *np){
+    printf("Qual a sigla do novo partido?\n");
+    gets((*x).partidos[(*np)].sigla);
+    printf("Qual o nome do partido?\n");
+    gets((*x).partidos[(*np)].nome);
+    (*x).partidos[(*np)].qtd=0;
+    (*np)++;
+}
 
 /*MAIN*/
 int main()
@@ -96,8 +97,8 @@ int main()
             },{"BE","Bloco de Esquerda",3,{{3567,"Joana Rodrigues Mortagua",'F',"Setubal"},{3876,"Joao Manuel Duarte Vasconcelos",'M',"Faro"},{3004,"Catarina Soares Martins",'F',"Porto"}}}
         }
     };
-    //np=inserirpart(&pt, np);
+    inserirpart(&pt,&np);
     inserirdep(&pt,np);
-    //mostrarpartid(pt,np);
+    mostrarpartid(pt,np);
     return 0;
 }
