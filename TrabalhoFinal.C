@@ -211,7 +211,7 @@ int main(){
                 system("cls");
                 printf("Numero de deputados do sexo feminino: %d\n", nf);
                 float perc=nf/ndep*100;
-                printf("Percentagem de mulheres no palrlamento: %.2f por cento\n",perc);
+                printf("Percentagem de mulheres no parlamento: %.2f por cento\n",perc);
                 break;
             case 10:
                 system("cls");
