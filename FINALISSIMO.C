@@ -147,15 +147,20 @@ void eliminardep(tParlamento *x, int np, int *nf){
 }
 
 /* Função eliminar partido */
-void eliminarpart(tParlamento *x, int *np){
+void eliminarpart(tParlamento *x, int *np, int *nf){
     char str[15];
-    int ret,i,j,cont=0;
+    int ret,i,j,k,cont=0;
     printf("\nQue partido quer eliminar?\n");
     gets(str);
     for (i=0;i<(*np);i++){
         ret=strcmp((*x).partidos[i].sigla,str);
         if(ret==0){
+            for(k=0;k<(*x).partidos[cont].qtd;k++){
+                if(((*x).partidos[cont].deputados[k].genero)=='F')
+                    (*nf)--;
+            }
             for(j=cont;j<(*np);j++){
+
                 (*x).partidos[j]=(*x).partidos[j+1];
             }
             (*np)--;
@@ -233,7 +238,7 @@ int main(){
                 break;
             case 6:
                 system("cls");
-                eliminarpart(&pt,&np);
+                eliminarpart(&pt,&np,&nf);
                 break;
             case 7:
                 system("cls");
