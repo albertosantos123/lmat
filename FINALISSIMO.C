@@ -1,277 +1,163 @@
-#include <stdio.h>
-#include <stdlib.h>
-#define MAX 50
+# -*- coding: utf-8 -*-
+"""
+Laboratórios de Matemática I/II
+
+ Autor:
+Número:
+ Turma: 
+  Data:
+
+"""
+from __future__ import division
+from __future__ import print_function
+from LabMat1_Lib import *
+import pylab as pl
+clc()
+#%% início
+#Pergunta 1
+n=symbols('n',positive=True,integer=True)
+t=sym('t')
+
+som=inline((2/(n*pi)*cos(n*pi*t+(-1)**n*(pi/2))),(n,t))
+
+sf=-1+symsum(som(n,t),n,1,10)
+
+bn=(((-1)**n)*2)/(n*pi)
+
+Hn=sqrt(bn**2)
+
+ph=((-1)**n)*(pi/2)
+
+w0=pi
+figure(1)
+W=[i*w0 for i in range(10)]
+HN=[abs(-1)]+[subs(Hn,n,i) for i in range(1,10)]
+PH=[subs(ph,n,i) for i in range(1,10)]
+subplot(1,2,1);stem(W,HN);axis([-5,35,-1,2]);grid(1)
+subplot(1,2,2);stem(W[1:],PH);axis([-5,35,-4,4]);grid(1)
 
 
-/* Estrutura Deputado */
-typedef struct D
-{
-    int codigo;
-    char nome [MAX];
-    char genero;
-    char circulo[MAX];
-} tDeputado;
+#%%
+#Pergunta 3
+a=sym('a')
+vy=list()
+vx=list()
+f1=list()
 
-/* Estrutura Deputados */
-typedef tDeputado tDeputados[MAX];
+vy.append(0)
+vx.append(0)
+h=0.5
+for i in range(0,3):
+    vx.append(vx[i]+h)
+    f1.append(vx[i]*vy[i]+2*a*vx[i])
+    vy.append(vy[i]+h*f1[i])
 
-/* Estrutura Partido */
-typedef struct P
-{
-    char sigla[MAX];
-    char nome[MAX];
-    int qtd;
-    tDeputados deputados;
-} tPartido;
 
-/* Estrutura Partidos */
-typedef tPartido tPartidos[MAX];
 
-/* Estrutura Parlamento */
-typedef struct Pa
-{
-    char pais[MAX];
-    tPartidos partidos;
-} tParlamento;
 
-/* Função mostrar parlamento */
-void mostrarparl(tParlamento x, int np){
-    int i;
-    printf("\n %s :\n", x.pais);
-    for (i=0;i<np;i++){                                                     //ciclo que corre todos os partidos e mostra a sigla e nome
-        printf("%s - %s \n", x.partidos[i].sigla, x.partidos[i].nome);
-    }
-}
+#%%
+#Pergunta 5
 
-/* Função mostrar partido */
-void mostrarpartid(tParlamento x,int np){
-    int i, j;
-    for (i=0;i<np;i++){ //ciclo que corre todos os partidos e mostra sigla, nome e quantidade
-        printf("\n%s - %s - %d deputados:\n\n",x.partidos[i].sigla, x.partidos[i].nome,x.partidos[i].qtd);
-    for (j=0;j<(x.partidos[i].qtd);j++){    //ciclo que corre todos os deputados de cada partido e apresenta o seu nome
-        printf("%s\n", x.partidos[i].deputados[j].nome);
-    }
-    }
-}
+vq=list()
+vi=list()
+f2=list()
+f3=list()
 
-/* Função mostrar deputados */
-void mostrardep (tParlamento x, int np){
-    int i,j;
-    for(i=0;i<np;i++){  //ciclo que corre todos os partidos e mostra a sigla
-            printf("\n");
-            printf("%s :\n",x.partidos[i].sigla);
-            for(j=0;j<(x.partidos[i].qtd);j++){ //ciclo que corre todos os deputados e mostra o seu codigo, nome, genero e circulo
-                    printf("%d - %s - %c - %s\n", x.partidos[i].deputados[j].codigo, x.partidos[i].deputados[j].nome, x.partidos[i].deputados[j].genero, x.partidos[i].deputados[j].circulo);
-        }
-    }
-}
 
-/* Função alterar país do parlamento */
-void mudarpais(tParlamento *x){
-    printf("Por favor, insira o nome do pais (sem acentuacao e sem cedilhas):\n");
-    gets((*x).pais);
-}
+vq.append(1)
+vi.append(0)
 
-/* Função inserir deputado */
-void inserirdep(tParlamento *x, int np,int *nf)
-{
-    char str[15];
-    int ret,i,cont=0;
-    printf("Em que partido quer adicionar o deputado? (sigla)\n");
-    gets(str);
-    for (i=0;i<np;i++){
-        ret=strcmp((*x).partidos[i].sigla,str);
-        if(ret==0){
-            printf("Qual o nome do deputado a adicionar?\n");
-            gets((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].nome);
-            fflush(stdin);
-            printf("Qual o circulo eleitoral do deputado a adicionar?\n");
-            gets((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].circulo);
-            fflush(stdin);
-            printf("Qual o genero do deputado a adicionar? (M ou F)\n");
-            scanf("%c",&((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].genero));
-            if(((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].genero)=='F')
-                (*nf)++;
-            fflush(stdin);
-            printf("Qual o codigo do deputado a adicionar?\n");
-            scanf("%d",&((*x).partidos[cont].deputados[((*x).partidos[cont].qtd)].codigo));
-            fflush(stdin);
-            ((*x).partidos[cont].qtd)++;
-        }
-        else
-            cont++;
-    }
+h=0.5
+for i in range(0,2):
 
-}
+    f2.append(vi[i])
+    f3.append(5-3*vq[i]-4*vi[i])
+    vq.append(vq[i]+h*f2[i])
+    vi.append(vi[i]+h*f3[i])
 
-/* Função inserir partido */
-void inserirpart(tParlamento *x, int *np){
-    printf("Qual a sigla do novo partido?\n");
-    gets((*x).partidos[(*np)].sigla);
-    printf("Qual o nome do partido?\n");
-    gets((*x).partidos[(*np)].nome);
-    (*x).partidos[(*np)].qtd=0;
-    (*np)++;
-}
 
-/* Função eliminar deputado */
-void eliminardep(tParlamento *x, int np, int *nf){
-    char str[15];
-    int cod;
-    int ret,i,j,k,cont1=0,cont2=0;
 
-    printf("\nEm que partido quer eliminar o deputado?\n");
-    gets(str);
-    for (i=0;i<np;i++){
-        ret=strcmp((*x).partidos[i].sigla,str);
-        if(ret==0){
-            printf("Qual o codigo do deputado a eliminar?\n");
-            scanf("%d",&cod);
-            fflush(stdin);
-            for (j=0;j<((*x).partidos[cont1].qtd);j++){
-                if(cod==((*x).partidos[cont1].deputados[j].codigo)){
-                    if(((*x).partidos[cont1].deputados[j].genero)=='F')
-                        (*nf)--;
-                    for(k=cont2;k<((*x).partidos[cont1].qtd);k++){
-                    (*x).partidos[cont1].deputados[k]=(*x).partidos[cont1].deputados[k+1];
-                    }
-                    ((*x).partidos[cont1].qtd)--;
-                }
-                else
-                    cont2++;
-            }
-        }
-        else
-            cont1++;
-    }
-}
 
-/* Função eliminar partido */
-void eliminarpart(tParlamento *x, int *np, int *nf){
-    char str[15];
-    int ret,i,j,k,cont=0;
-    printf("\nQue partido quer eliminar?\n");
-    gets(str);
-    for (i=0;i<(*np);i++){
-        ret=strcmp((*x).partidos[i].sigla,str);
-        if(ret==0){
-            for(k=0;k<(*x).partidos[cont].qtd;k++){
-                if(((*x).partidos[cont].deputados[k].genero)=='F')
-                    (*nf)--;
-            }
-            for(j=cont;j<(*np);j++){
+#%%
+#Pergunta 6
+t=sym('t') 
+T=2
 
-                (*x).partidos[j]=(*x).partidos[j+1];
-            }
-            (*np)--;
-        }
-        else
-            cont++;
-    }
-}
+P=(1/T)*intc(t**2,t,-1,1) 
 
-/* Função total e média de deputados do sexo feminino */
-void totalfeminino(int *nf,tParlamento pt,int np){
-    int i,j,cont;
-    float m1,m2,m;
-    m1=*nf;
-    m2=np;
-    m=m1/m2;
-    printf("Total de deputados do sexo feminino: %d\n",*nf);
-    printf("Media de deputados femininos por partido: %f\n",m);
-}
 
-/* Função percentagem de deputados de cada um dos partidos no parlamento */
-void presenca(tParlamento x,int nt,int np){
-    int i,maior=0,menor=0;
-    for(i=0;i<np;i++){
-        printf("%s: %d por cento\n",x.partidos[i].sigla,x.partidos[i].qtd*100/nt);
-        if(x.partidos[i].qtd>x.partidos[maior].qtd)
-            maior=i;
-        if(x.partidos[i].qtd<x.partidos[menor].qtd)
-            menor=i;
-    }
-    printf("\nPartido mais votado: %s\n",x.partidos[maior].sigla);
-    printf("Partido menos votado: %s\n",x.partidos[menor].sigla);
-}
 
-/* MAIN */
-int main(){
-    tParlamento pt= {"Portugal",{{"PS","Partido Socialista",5,{{1321,"Alexandre Tiedtke Quintanilha",'M',"Porto"},{1582,"Antonio Manuel Leitao Borges",'M',"Viseu"},{1456,"Antonio Paulo Jacinto Eusebio",'M',"Faro"},{1789,"Ana Catarina Veiga Santos Mendonca Mendes",'F',"Setubal"},{1309,"Wanda Olavo Correa D'azevedo Guimaraes",'F',"Lisboa"}}},{"PSD","Partido Social Democrata",6,{{2045, "Pedro Manuel Mamede Passos Coelho",'M',"Lisboa"},{2852,"Antonio Francisco Costa da Silva",'M',"Evora"},{2778,"Luis Filipe Montenegro Cardoso de Morais Esteves",'M',"Aveiro"},{2356,"Maria Manuela Pereira Tender",'F',"Vila Real"},{2932,"Sara Martins Marques dos Santos Madruga da Costa",'F',"Madeira"},{2467,"Isaura Leonor Marques de Figueiredo Silva Pedro",'F',"Viseu"}}},{"BE","Bloco de Esquerda",4,{{3567,"Joana Rodrigues Mortagua",'F',"Setubal"},{3792,"Jose Paulino Carvalho de Ascencao",'M',"Madeira"},{3876,"Joao Manuel Duarte Vasconcelos",'M',"Faro"},{3004,"Catarina Soares Martins",'F',"Porto"}}}}};
-    int n, np=3, nf=7,ndep=15;
-    do{
-            printf("Selecione uma opcao:\n\n");
-            printf("1. Mostrar Parlamento\n");
-            printf("2. Mostrar Partidos\n");
-            printf("3. Mostrar Deputados\n");
-            printf("4. Mudar nome do Parlamento\n");
-            printf("5. Adicionar Partido\n");
-            printf("6. Eliminar Partido\n");
-            printf("7. Adicionar Deputado\n");
-            printf("8. Eliminar Deputado\n");
-            printf("9. Total e media de Deputados do sexo feminino\n");
-            printf("10. Presenca no Parlamento\n");
-            printf("11. Informacoes\n");
-            printf("0. Sair do programa\n");
-            scanf("%d",&n);
-            mudarpais(&pt);
-            switch(n){
-            case 1:
-                system("cls");
-                mostrarparl(pt,np);
-                break;
-            case 2:
-                system("cls");
-                mostrarpartid(pt,np);
-                break;
-            case 3:
-                system("cls");
-                mostrardep(pt,np);
-                break;
-            case 4:
-                system("cls");
-                mudarpais(&pt);
-                break;
-            case 5:
-                system("cls");
-                inserirpart(&pt,&np);
-                break;
-            case 6:
-                system("cls");
-                eliminarpart(&pt,&np,&nf);
-                break;
-            case 7:
-                system("cls");
-                inserirdep(&pt,np,&nf);
-                break;
-            case 8:
-                system("cls");
-                eliminardep(&pt,np,&nf);
-                break;
-            case 9:
-                system("cls");
-                totalfeminino(&nf,pt,np);
-                break;
-            case 10:
-                system("cls");
-                presenca(pt,ndep,np);
+Hn=2/(n*pi) 
+Pn=symsum(Hn**2,n,1,5)/2 
 
-                break;
-            case 11:
-                system("cls");
-                printf("Trabalho pratico de APROG\n\n");
-                printf("Ano letivo 2016-2017\n\n");
-                printf("Autores:\n");
-                printf("- Andre Moura\n");
-                printf("- Alberto Santos\n");
-                printf("- Miguel Mestre\n\n");
-                break;
-            case 0:
-                system("cls");
-                printf("FIM\n");
-                break;
-            }
-            system("pause");
-            system("cls");
-    }while (n!=0);
-}
+
+
+#%%
+#Pergunta 7
+vy=list()
+vx=list()
+f1=list()
+
+vy.append(0)
+vx.append(0)
+h=0.1
+for i in range(0,10):
+    vx.append(vx[i]+h)
+    f1.append(1-vx[i]*exp(-vy[i]))
+    vy.append(vy[i]+h*f1[i])
+
+#%%
+x,y=sym('x y')
+f=inline(1-x*exp(-y),(x,y))
+Jnl=[-1,1,0,1]
+
+
+xx0,yy0=Euler(f(x,y),(x,y))
+
+xx,yy=Euler(f(x,y),(x,y),x0=0,y0=0,xf=1,h=0.1)
+
+
+CampoVetores(f(x,y),(x,y),J=Jnl,d=[5,5],norm=False)
+#LinhasCorrente(f(x,y),(x,y),J=Jnl,d=[5,5])
+
+
+
+#%%
+#Pergunta 8
+
+m=1
+K=50
+b=2
+F=10
+
+t=sym('t')
+x=Function('x')
+C=[symbols('C{}'.format(i)) for i in range(1,3)] 
+
+
+ED2=Eq(diff(x(t),t,2)*m+b*diff(x(t),t)+K*x(t),F)
+
+
+sg=dsolve(ED2,x(t))
+display(sg)
+
+
+
+x0=0
+dx0=0
+
+e1=x0-subs(sg.rhs,t,0)
+e2=dx0-subs(diff(sg.rhs,t),t,0)
+
+S=solve([e1,e2],C)[0]
+sp=subs(subs(sg,C[0],S[0]),C[1],S[1])
+display(sp)
+#%%
+x=sym('x')
+f=(13/40)*cos(x)*exp(-2*x)+(9/40)*sin(3*x)
+g=((-1/40)*sin(x)+(13/40)*cos(x))*exp(-2*x)
+i=(9/40)*sin(3*x)-(13/40)*cos(3*x)
+ezplot(f)
+ezplot(g)
+ezplot(i)
+show()
